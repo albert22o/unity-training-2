@@ -2545,7 +2545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb0f1f2e6126be40862223af999b868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 20
 --- !u!64 &701476024
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4915,7 +4915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb0f1f2e6126be40862223af999b868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 20
 --- !u!1 &2132651613
 GameObject:
   m_ObjectHideFlags: 0
