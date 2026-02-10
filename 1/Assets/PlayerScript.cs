@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -7,6 +8,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private CameraScript cameraControl;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float jumpForce = 10f;
+    public UnityEvent onJump;
+
 
     private Rigidbody rb;
     private Vector2 moveInput;
@@ -59,6 +62,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (!onGround) return;
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        onJump?.Invoke();
     }
 
     private void OnCollisionEnter(Collision collision)
