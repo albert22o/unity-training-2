@@ -7,13 +7,13 @@ using UnityEngine;
 public class Buble : MonoBehaviour
 {
     public bool WasDropped => wasDropped;
-    new Rigidbody2D rigidbody;
+    Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     private bool wasDropped;
     private bool dragging;
 
-    public int Score { get; set; } = 1;
-    public bool Destroyed { get; set; }
+    public int Score = 1;
+    public bool Destroyed;
     public Action<int> OnScoreIncrease;
     public Action OnDropped;
 
@@ -42,7 +42,7 @@ public class Buble : MonoBehaviour
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -55,7 +55,7 @@ public class Buble : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
         if (Input.GetMouseButton(0))
-            rigidbody.MovePosition(mousePosition);
+            rb.MovePosition(mousePosition);
     }
 
     private void OnMouseUp() 
@@ -71,6 +71,6 @@ public class Buble : MonoBehaviour
     {
         yield return new WaitForFixedUpdate();
         wasDropped = true;
-        rigidbody.constraints = RigidbodyConstraints2D.None;
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 }
