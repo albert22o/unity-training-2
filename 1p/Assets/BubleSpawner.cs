@@ -6,15 +6,17 @@ public class BubleSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject bublePrefab;
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private float spawnInterval = 1f;
     private void Start()
     {
-        SpawnBuble();
+        StartCoroutine(SpawnBubleLater());
     }
 
     private IEnumerator SpawnBubleLater()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(spawnInterval);
         SpawnBuble();
+        StartCoroutine(SpawnBubleLater());
     }
 
     private void SpawnBuble()
@@ -22,10 +24,8 @@ public class BubleSpawner : MonoBehaviour
         Vector3 spawnPosition = new(gameObject.transform.position.x, gameObject.transform.position.y);
         GameObject newBubleObj = Instantiate(bublePrefab, spawnPosition, Quaternion.identity);
 
-
-        if (newBubleObj.TryGetComponent<Buble>(out Buble bubleScript))
+        if (newBubleObj.TryGetComponent(out Buble bubleScript))
         {
-            bubleScript.OnDropped += () => StartCoroutine(SpawnBubleLater());
             bubleScript.OnScoreIncrease += scoreManager.IncreaseScore;
         }
     }
