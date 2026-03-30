@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 49a0be4b5191a1b4a8790f39b14b24b8
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 278070
+  packageName: Working Clock
+  packageVersion: 1.0
+  assetPath: Assets/Clock/ClockTest.unity
+  uploadId: 646538
