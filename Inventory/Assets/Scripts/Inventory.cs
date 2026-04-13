@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -73,7 +73,17 @@ public class Inventory : MonoBehaviour
         {
             slots[i].amount--;
             if (slots[i].amount <= 0)
+            {
+                if (slots[i].item.itemData is Armor armor)
+                {
+                    armor.UnEquipe(GetComponent<PlayerScript>());
+                }
+                if (slots[i].item.itemData is Weapon weapon)
+                {
+                    weapon.UnEquipe(GetComponent<PlayerScript>());
+                }
                 slots.RemoveAt(i);
+            }
             onInventoryChanged.Invoke();
         }
     }
