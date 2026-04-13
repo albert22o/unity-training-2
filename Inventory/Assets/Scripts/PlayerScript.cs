@@ -12,7 +12,9 @@ public class PlayerScript : MonoBehaviour
     public TMP_Text description;
 
     public Transform holder;         // пустой объект "рука" в иерархии персонажа
+    public Transform armorHolder;    // пустой объект "броня" в иерархии персонажа
     public ItemInstance activeItem;  // экипированное оружие
+    public ItemInstance activeArmor; // экипированная броня
 
     Animator anim;
     public Stats stats = new Stats();
@@ -22,6 +24,7 @@ public class PlayerScript : MonoBehaviour
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         activeItem = null;
+        activeArmor = null;
     }
 
     void LateUpdate()
@@ -85,6 +88,11 @@ public class PlayerScript : MonoBehaviour
             Destroy(holder.transform.GetChild(0).gameObject);
             activeItem = null;
         }
+        if (activeArmor == item)
+        {
+            Destroy(armorHolder.transform.GetChild(0).gameObject);
+            activeArmor = null;
+        }
         GetComponent<Inventory>().dropItem(i);
     }
 
@@ -97,6 +105,11 @@ public class PlayerScript : MonoBehaviour
         {
             Destroy(holder.transform.GetChild(0).gameObject);
             activeItem = null;
+        }
+        if (activeArmor == item)
+        {
+            Destroy(armorHolder.transform.GetChild(0).gameObject);
+            activeArmor = null;
         }
         GetComponent<Inventory>().destroyItem(i);
     }

@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using UnityEngine;
 
-namespace Assets.Scripts
+[CreateAssetMenu(fileName = "New Armor", menuName = "inventory/Armor")]
+public class Armor : Item
 {
-    internal class Armor
+    public int defense;
+    public override bool use(PlayerScript player, ItemInstance itemData)
     {
+        player.activeArmor = itemData;
+        if (player.armorHolder.transform.childCount > 0)
+            Destroy(player.armorHolder.transform.GetChild(0).gameObject);
+
+        Instantiate(player.activeArmor.itemData.prefab, player.armorHolder.transform);
+        return false; // броня не уничтожается при использовании
     }
 }
+
