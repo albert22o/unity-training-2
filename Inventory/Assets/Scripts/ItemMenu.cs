@@ -1,13 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ItemMenu : MonoBehaviour
 {
     public PlayerScript player;
+    public InventoryUI inventoryUI;
     public int i;
 
     public void use()
     {
         player.use(i);
+        inventoryUI.updateUI();
         hide();
     }
 

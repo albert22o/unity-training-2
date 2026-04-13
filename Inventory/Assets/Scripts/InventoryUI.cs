@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -15,6 +15,12 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < inventory.getSize(); i++)
         {
             icons[i].color = new Color(1, 1, 1, 1);
+
+            if (inventory.getItem(i).IsEquiped)
+            {
+                icons[i].color = new Color(0, 1, 0, 1); // зеленый для брони
+            }
+
             icons[i].sprite = inventory.getItem(i).itemData.icon;
             amounts[i].text = (inventory.getAmount(i) > 1)
                 ? inventory.getAmount(i).ToString() : "";

@@ -840,9 +840,11 @@ MonoBehaviour:
   activeItem:
     itemData: {fileID: 0}
     damage: 0
+    IsEquiped: 0
   activeArmor:
     itemData: {fileID: 0}
     damage: 0
+    IsEquiped: 0
 --- !u!136 &500830216
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2700,6 +2702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 500830215}
+  inventoryUI: {fileID: 1724107443}
   i: 0
 --- !u!222 &1682615522
 CanvasRenderer:

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "inventory/Weapon")]
 public class Weapon : Item
@@ -8,7 +8,12 @@ public class Weapon : Item
 
     public override bool use(PlayerScript player, ItemInstance itemData)
     {
+        if (player.activeItem != null)
+        {
+            player.activeItem.IsEquiped = false;
+        }
         player.activeItem = itemData;
+        player.activeItem.IsEquiped = true;
         if (player.holder.transform.childCount > 0)
             Destroy(player.holder.transform.GetChild(0).gameObject);
 
