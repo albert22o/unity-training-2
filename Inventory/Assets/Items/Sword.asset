@@ -16,7 +16,7 @@ MonoBehaviour:
   item_name: Sword
   max_stack: 1
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 6411742207593077296, guid: d16a0fe49b4111d41b441df12ce627e5, type: 3}
   action: Strike
   min_damage: 0
   max_damage: 0
