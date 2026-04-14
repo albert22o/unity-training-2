@@ -1319,11 +1319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxItems: 4
-  icons:
-  - {fileID: 2005765518}
-  - {fileID: 1673937849}
-  - {fileID: 1218499295}
-  - {fileID: 462098858}
+  chestView: {fileID: 885570811}
 --- !u!114 &527321157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,8 +1333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chest: {fileID: 527321156}
-  inventory: {fileID: 500830221}
   chestUI: {fileID: 885570804}
+  chestGenericController: {fileID: 885570810}
+  chestView: {fileID: 885570811}
 --- !u!65 &527321158
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1422,7 +1419,7 @@ Transform:
   m_GameObject: {fileID: 527321155}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1903.6614, y: 1081.05, z: 5.21}
+  m_LocalPosition: {x: 1903.89, y: 1081.05, z: 5.21}
   m_LocalScale: {x: 5.01, y: 2.9, z: 5.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1511,8 +1508,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527321157}
-        m_TargetAssemblyTypeName: ChestController, Assembly-CSharp
+      - m_Target: {fileID: 885570810}
+        m_TargetAssemblyTypeName: ChestGenericController, Assembly-CSharp
         m_MethodName: AddItem
         m_Mode: 1
         m_Arguments:
@@ -2078,6 +2075,8 @@ GameObject:
   - component: {fileID: 885570809}
   - component: {fileID: 885570808}
   - component: {fileID: 885570807}
+  - component: {fileID: 885570811}
+  - component: {fileID: 885570810}
   m_Layer: 5
   m_Name: ChestUI
   m_TagString: Untagged
@@ -2174,6 +2173,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885570804}
   m_CullTransparentMesh: 1
+--- !u!114 &885570810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885570804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfabb00fcb23a4740819b022a47ce5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 500830221}
+--- !u!114 &885570811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885570804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84638b8c151b1884da8017aba9189f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icons:
+  - {fileID: 2005765518}
+  - {fileID: 1673937849}
+  - {fileID: 1218499295}
+  - {fileID: 462098858}
 --- !u!1 &917465268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2295,6 +2324,146 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &961072750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961072756}
+  - component: {fileID: 961072755}
+  - component: {fileID: 961072754}
+  - component: {fileID: 961072753}
+  - component: {fileID: 961072752}
+  - component: {fileID: 961072751}
+  m_Layer: 0
+  m_Name: Chest (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &961072751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961072750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfd7250be5da2f418ee4e971d52dfd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxItems: 4
+  chestView: {fileID: 885570811}
+--- !u!114 &961072752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961072750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2361b03ca3d85d498aa57e3275e7192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chest: {fileID: 961072751}
+  chestUI: {fileID: 885570804}
+  chestGenericController: {fileID: 885570810}
+  chestView: {fileID: 885570811}
+--- !u!65 &961072753
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961072750}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &961072754
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961072750}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &961072755
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961072750}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &961072756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961072750}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1911.13, y: 1081.05, z: 5.21}
+  m_LocalScale: {x: 5.01, y: 2.9, z: 5.01}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &985032842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3006,8 +3175,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 527321157}
-        m_TargetAssemblyTypeName: ChestController, Assembly-CSharp
+      - m_Target: {fileID: 885570810}
+        m_TargetAssemblyTypeName: ChestGenericController, Assembly-CSharp
         m_MethodName: RemoveItem
         m_Mode: 1
         m_Arguments:
@@ -5295,3 +5464,4 @@ SceneRoots:
   - {fileID: 985032842}
   - {fileID: 139766628}
   - {fileID: 527321161}
+  - {fileID: 961072756}
