@@ -1,0 +1,74 @@
+﻿<Window x:Class="DialogueEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактор диалогов" Height="600" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая панель: дерево -->
+        <DockPanel Grid.Column="0" Margin="5">
+            <DockPanel DockPanel.Dock="Top">
+                <Label Content="Дерево диалога:"/>
+                <Button Name="ClearButton" Content="Очистить"
+                        Click="ClearButton_Click" HorizontalAlignment="Right"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Bottom">
+                <Button Name="SaveButton" Content="Сохранить в XML"
+                        Click="SaveButton_Click" Margin="2"/>
+                <Button Name="LoadButton" Content="Загрузить из XML"
+                        Click="LoadButton_Click" Margin="2"/>
+            </DockPanel>
+            <TreeView Name="dlg"
+                      SelectedItemChanged="dlg_SelectedItemChanged"/>
+        </DockPanel>
+
+        <!-- Правая панель -->
+        <DockPanel Grid.Column="1" Margin="5">
+
+            <!-- Кнопки управления -->
+            <StackPanel DockPanel.Dock="Right" Width="160" Margin="5">
+                <Button Name="AddMsgButton" Content="Добавить сообщение"
+                        Click="AddMsgButton_Click" Margin="2"/>
+                <Button Name="AddAnswerButton" Content="Добавить ответ"
+                        Click="AddAnswerButton_Click" Margin="2"/>
+                <Label Content="Действие при ответе:"/>
+                <ComboBox Name="answAction" SelectedIndex="0" Margin="2">
+                    <ComboBoxItem Content="none"/>
+                    <ComboBoxItem Content="door open"/>
+                    <ComboBoxItem Content="dialogue end"/>
+                </ComboBox>
+                <Button Name="EditButton" Content="Редактировать"
+                        Click="EditButton_Click" Margin="2"/>
+                <Button Name="RemoveButton" Content="Удалить"
+                        Click="RemoveButton_Click" Margin="2"/>
+            </StackPanel>
+
+            <!-- Текст + инфо -->
+            <StackPanel DockPanel.Dock="Bottom" Margin="5">
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <Label Content="Выбранный ответ:"/>
+                    <Label Name="lbAnswer" Content="-"/>
+                    <Label Content="  Выбранное сообщение:"/>
+                    <Label Name="lbMessage" Content="-"/>
+                    <Button Name="LinkButton" Content="Связать"
+                            Click="LinkButton_Click" Margin="5,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="2">
+                    <Label Content="Выбранный ответ связан с сообщением:"/>
+                    <Label Name="linkedMsg" Content="-"/>
+                </StackPanel>
+                <TextBlock Margin="5" TextWrapping="Wrap" Foreground="Gray"
+                           Text="Чтобы связать ответ и сообщение: 1) выберите ответ  2) выберите сообщение  3) нажмите Связать"/>
+            </StackPanel>
+
+            <DockPanel Margin="5">
+                <Label DockPanel.Dock="Top" Content="Текст сообщения или ответа:"/>
+                <TextBox Name="txt" AcceptsReturn="True" TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"/>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>
