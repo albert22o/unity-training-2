@@ -1,0 +1,3 @@
+<messages uid="6">
+  <message uid="1">Помочь?<answers><answer auid="2" muid="-1" action="increaseStrengthByOne">Увеличить силу на 1</answer><answer auid="3" muid="-1" action="increaseStrengthByTwo">Увеличить силу на 2</answer><answer auid="4" muid="-1" action="increaseIntelligenceByOne">Увеличить интеллект на 1</answer><answer auid="5" muid="-1" action="increaseIntelligenceByTwo">Увеличить интеллект на 2</answer><answer auid="6" muid="-1" action="dialogue end">Выйти</answer></answers></message>
+</messages>

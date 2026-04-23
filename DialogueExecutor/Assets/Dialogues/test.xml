@@ -1,0 +1,4 @@
+<messages uid="6">
+  <message uid="1">Привет<answers><answer auid="2" muid="5" action="door open">Привет</answer><answer auid="3" muid="-1" action="dialogue end">Пока</answer></answers></message>
+  <message uid="5">Пока<answers><answer auid="6" muid="-1" action="dialogue end">Пока</answer></answers></message>
+</messages>

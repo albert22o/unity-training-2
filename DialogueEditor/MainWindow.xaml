@@ -39,6 +39,12 @@
                     <ComboBoxItem Content="none"/>
                     <ComboBoxItem Content="door open"/>
                     <ComboBoxItem Content="dialogue end"/>
+                    <ComboBoxItem Content="increaseStrengthByOne"/>
+                    <ComboBoxItem Content="increaseStrengthByTwo"/>
+                    <ComboBoxItem Content="increaseIntelligenceByOne"/>
+                    <ComboBoxItem Content="increaseIntelligenceByTwo"/>
+                    <ComboBoxItem Content="CheckIntelligence"/>
+                    <ComboBoxItem Content="CheckStrength"/>
                 </ComboBox>
                 <Button Name="EditButton" Content="Редактировать"
                         Click="EditButton_Click" Margin="2"/>

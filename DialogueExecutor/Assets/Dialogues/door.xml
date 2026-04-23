@@ -1,0 +1,3 @@
+<messages uid="4">
+  <message uid="1">Дверь<answers><answer auid="2" muid="-1" action="CheckIntelligence">Повернуть ручку</answer><answer auid="3" muid="-1" action="CheckStrength">Выбить дверь</answer><answer auid="4" muid="-1" action="dialogue end">Отойти от двери</answer></answers></message>
+</messages>
