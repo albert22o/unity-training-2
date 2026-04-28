@@ -28,8 +28,13 @@ public class NPCScript : MonoBehaviour, IInteractable
     {
         if (playerStats.Strength >= 2)
         {
-            openDoor();
+            brokeDoor();
         }
+    }
+
+    private void brokeDoor()
+    {
+        door.GetComponent<Animator>().SetBool("isBroken", true);
     }
 
     public void openDoor()
