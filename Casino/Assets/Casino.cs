@@ -40,7 +40,10 @@ public class Casino : MonoBehaviour
             var sum = 0f;
             sum += card.Chance;
             if (sum >= randomNum)
+            {
                 winChance = card;
+                break;
+            }
         }
         if ((winChance != null ? winChance.Reward : 0) > 0)
         {
