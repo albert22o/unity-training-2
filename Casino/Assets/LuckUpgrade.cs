@@ -18,7 +18,7 @@ public class LuckUpgrade : MonoBehaviour
     [SerializeField] LuckLevel level;
     [SerializeField] MoneyCounter moneyCounter;
 
-    private int upgradePrice = 10;
+    [SerializeField] int upgradePrice = 10;
     private TextMeshProUGUI text;
     private Button button;
 

@@ -14,7 +14,7 @@ public class Salary : MonoBehaviour
         }
     }
 
-    private int amount = 50;
+    [SerializeField] int amount = 50;
     private TextMeshProUGUI text;
     void Awake()
     {
