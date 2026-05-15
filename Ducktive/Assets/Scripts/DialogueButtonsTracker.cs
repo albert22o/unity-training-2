@@ -5,6 +5,7 @@ public class DialogueButtonsTracker : MonoBehaviour
 {
     [SerializeField] private DialogueButton[] buttons;
     [SerializeField] private GameObject target;
+    [SerializeField] private GameObject hide;
 
     private HashSet<DialogueButton> clicked = new HashSet<DialogueButton>();
 
@@ -23,6 +24,8 @@ public class DialogueButtonsTracker : MonoBehaviour
         if (clicked.Count == buttons.Length)
         {
             target.SetActive(true);
+            if (hide  != null) 
+                hide.SetActive(false);
         }
     }
 
