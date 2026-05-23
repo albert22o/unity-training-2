@@ -2,8 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(TextMeshProUGUI), typeof(Button))]
-public class SkillMoxUpgrade : MonoBehaviour
+[RequireComponent(typeof(TextMeshProUGUI),typeof(Button))]
+public class PaymentUpgrade : MonoBehaviour
 {
     public int UpgradePrice
     {
@@ -11,14 +11,14 @@ public class SkillMoxUpgrade : MonoBehaviour
         set
         {
             upgradePrice = value;
-            text.text = $"курсы SkillMox:{upgradePrice}$";
+            text.text = $"{upgradePrice}$";
         }
     }
 
-    [SerializeField] Salary level;
+    [SerializeField] PaymentLevel level;
     [SerializeField] MoneyCounter moneyCounter;
 
-    private int upgradePrice = 300;
+    private int upgradePrice = 10;
     private TextMeshProUGUI text;
     private Button button;
 
@@ -41,7 +41,7 @@ public class SkillMoxUpgrade : MonoBehaviour
         if (moneyCounter.Money < UpgradePrice)
             return;
         moneyCounter.Money -= UpgradePrice;
-        level.Amount += 1;
+        level.Payment += 1;
         UpgradePrice *= 2;
     }
 }

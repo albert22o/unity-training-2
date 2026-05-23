@@ -15,15 +15,15 @@ MonoBehaviour:
   SpinCost: 30
   Dfficulty: Medium
   Chances:
-  - icon: {fileID: 7377750055599407878, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+  - icon: {fileID: 21300000, guid: 5be8b214542708f4ca907d76b98130ec, type: 3}
     chance: 15
     reward: 400
-  - icon: {fileID: 5827190069618263385, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+  - icon: {fileID: 21300000, guid: cd1cea45be7172e438d051f57d94ac2b, type: 3}
     chance: 15
     reward: 300
-  - icon: {fileID: 3933521219405346922, guid: 5f0074f1c36da4a71bf1a5e1528a2f35, type: 3}
+  - icon: {fileID: 21300000, guid: ab4dc476d43f7ce4eb8ea86bacfa5969, type: 3}
     chance: 30
     reward: 30
-  - icon: {fileID: 0}
+  - icon: {fileID: 21300000, guid: 6deb1931b7c6c3d42b556f555ccd4157, type: 3}
     chance: 40
     reward: 0

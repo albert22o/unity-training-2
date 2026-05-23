@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(TextMeshProUGUI),typeof(Button))]
-public class PaymentUpgrade : MonoBehaviour
+public class LuckUpgrade : MonoBehaviour
 {
     public int UpgradePrice
     {
@@ -11,14 +11,14 @@ public class PaymentUpgrade : MonoBehaviour
         set
         {
             upgradePrice = value;
-            text.text = $"выплаты +1 ур:{upgradePrice}$";
+            text.text = $"{upgradePrice}$";
         }
     }
 
-    [SerializeField] PaymentLevel level;
+    [SerializeField] LuckLevel level;
     [SerializeField] MoneyCounter moneyCounter;
 
-    private int upgradePrice = 10;
+    [SerializeField] int upgradePrice = 10;
     private TextMeshProUGUI text;
     private Button button;
 
@@ -41,7 +41,7 @@ public class PaymentUpgrade : MonoBehaviour
         if (moneyCounter.Money < UpgradePrice)
             return;
         moneyCounter.Money -= UpgradePrice;
-        level.Payment += 1;
+        level.Luck += 1;
         UpgradePrice *= 2;
     }
 }
