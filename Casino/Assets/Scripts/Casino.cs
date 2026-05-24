@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 
 public class Casino : MonoBehaviour
 {
+
     [SerializeField] TicketInfo ticketInfo;
     [SerializeField] MoneyCounter moneyCounter;
     [SerializeField] YearsCounter yearsCounter;
@@ -22,7 +24,7 @@ public class Casino : MonoBehaviour
     // Задержка между раскрытием слотов (драматический эффект)
     [SerializeField] private float delayBetweenSlots = 0.3f;
 
-    private bool isSpinning = false;
+    public bool isSpinning = false;
 
     private void Awake()
     {
@@ -37,7 +39,6 @@ public class Casino : MonoBehaviour
         if (moneyCounter.Money < ticketInfo.SpinCost) return;
         if (yearsCounter.Years <= 0) return;
 
-        yearsCounter.DecreaseYear();
         moneyCounter.Money -= ticketInfo.SpinCost;
 
         // Закрываем все слоты заглушками
@@ -58,12 +59,13 @@ public class Casino : MonoBehaviour
         {
             StartCoroutine(RevealLose());
         }
+        yearsCounter.DecreaseYear();
     }
 
     private CardChance GetWinChance()
     {
         var cumulativeSum = ticketInfo.CardChances.Sum(card => card.Chance);
-        var randomNum = Random.Range(0, cumulativeSum);
+        var randomNum = UnityEngine.Random.Range(0, cumulativeSum);
         float sum = 0f;
 
         foreach (var card in ticketInfo.CardChances)

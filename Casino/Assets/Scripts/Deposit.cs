@@ -10,7 +10,7 @@ public class Deposit : MonoBehaviour
     [SerializeField] MoneyCounter moneyCounter;
     [SerializeField] YearsCounter yearsCounter;
     [SerializeField] Animator animator;
-    private int depositIncome => depositValue * 4 / 100;
+    private int depositIncome => depositValue * 5 / 100;
     private TextMeshProUGUI text;
     private int depositValue = 0;
 

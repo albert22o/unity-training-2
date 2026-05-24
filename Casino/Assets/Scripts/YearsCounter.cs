@@ -13,6 +13,9 @@ public class YearsCounter : MonoBehaviour
     private int years = 20;
     private TextMeshProUGUI text;
 
+    [SerializeField] Casino casino;
+    private bool waitForSignal;
+
     private void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
@@ -28,7 +31,18 @@ public class YearsCounter : MonoBehaviour
         years -= 1;
         text.text = $"Лет до пенсии: {years}/20";
         YearPass?.Invoke();
-        if (years == 0) 
+        if (years == 0)
+        {
+            if (casino.isSpinning)
+                waitForSignal = true;
+            else
+                EndRun?.Invoke();
+        }
+    }
+
+    public void Trigger()
+    {
+        if (waitForSignal) 
             EndRun?.Invoke();
     }
 }

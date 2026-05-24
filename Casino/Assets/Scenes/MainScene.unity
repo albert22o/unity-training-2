@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df272ffd88664f24ab9e37ff8ad0a24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casino: {fileID: 1413858355}
 --- !u!114 &28624111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,6 +1165,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: In
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 28624110}
+        m_TargetAssemblyTypeName: YearsCounter, Assembly-CSharp
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &229096814
@@ -5484,6 +5497,7 @@ MonoBehaviour:
   thirdSlot: {fileID: 643624829}
   animator: {fileID: 770993386}
   delayBetweenSlots: 0.4
+  isSpinning: 0
 --- !u!1 &1446782494
 GameObject:
   m_ObjectHideFlags: 0
