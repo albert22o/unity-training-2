@@ -1,6 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +10,19 @@ public class Casino : MonoBehaviour
     [SerializeField] TicketInfo ticketInfo;
     [SerializeField] MoneyCounter moneyCounter;
     [SerializeField] YearsCounter yearsCounter;
-
     [SerializeField] TextMeshProUGUI rewardText;
 
-    [SerializeField] Image firstSlot;
-    [SerializeField] Image secondSlot;
-    [SerializeField] Image thirdSlot;
+    // Заменяем Image на SlotReveal
+    [SerializeField] SlotReveal firstSlot;
+    [SerializeField] SlotReveal secondSlot;
+    [SerializeField] SlotReveal thirdSlot;
+
+    [SerializeField] Animator animator;
+
+    // Задержка между раскрытием слотов (драматический эффект)
+    [SerializeField] private float delayBetweenSlots = 0.3f;
+
+    private bool isSpinning = false;
 
     private void Awake()
     {
@@ -24,61 +32,91 @@ public class Casino : MonoBehaviour
 
     public void Spin()
     {
-        if (ticketInfo.CardChances.Count < 3)
-            return;
-        if (moneyCounter.Money < ticketInfo.SpinCost)
-            return;
-        if (yearsCounter.Years <= 0)
-            return;
+        if (isSpinning) return;
+        if (ticketInfo.CardChances.Count < 3) return;
+        if (moneyCounter.Money < ticketInfo.SpinCost) return;
+        if (yearsCounter.Years <= 0) return;
+
         yearsCounter.DecreaseYear();
         moneyCounter.Money -= ticketInfo.SpinCost;
-        var cumulativeSum = ticketInfo.CardChances.Sum(card => card.Chance);
-        var randomNum = Random.Range(0, cumulativeSum);
-        CardChance winChance = null;
-        foreach(var card in ticketInfo.CardChances)
+
+        // Закрываем все слоты заглушками
+        firstSlot.Cover();
+        secondSlot.Cover();
+        thirdSlot.Cover();
+        rewardText.text = "";
+
+        // Определяем результат
+        CardChance winChance = GetWinChance();
+        bool isWin = winChance != null && winChance.Reward > 0;
+
+        if (isWin)
         {
-            var sum = 0f;
-            sum += card.Chance;
-            if (sum >= randomNum)
-            {
-                winChance = card;
-                break;
-            }
-        }
-        if ((winChance != null ? winChance.Reward : 0) > 0)
-        {
-            SetWinCombo(winChance.Icon);
-            moneyCounter.Money += (int)winChance.Reward;
-            rewardText.text = $"Вы выиграли: {winChance.Reward}";
+            StartCoroutine(RevealWin(winChance));
         }
         else
         {
-            SetLoseCombo();
-            rewardText.text = "Вы проиграли";
+            StartCoroutine(RevealLose());
         }
     }
 
-    private void SetWinCombo(Sprite winSprite)
+    private CardChance GetWinChance()
     {
-        firstSlot.sprite = winSprite;
-        secondSlot.sprite = winSprite;
-        thirdSlot.sprite = winSprite;
+        var cumulativeSum = ticketInfo.CardChances.Sum(card => card.Chance);
+        var randomNum = Random.Range(0, cumulativeSum);
+        float sum = 0f;
+
+        foreach (var card in ticketInfo.CardChances)
+        {
+            sum += card.Chance;
+            if (sum >= randomNum)
+                return card;
+        }
+        return null;
     }
 
-    private void SetLoseCombo()
+    private IEnumerator RevealWin(CardChance winChance)
     {
-        var chances = ticketInfo.CardChances.ToList();
+        isSpinning = true;
 
-        var first = chances[Random.Range(0, chances.Count)];
-        firstSlot.sprite = first.Icon;
-        chances.Remove(first);
+        yield return StartCoroutine(firstSlot.RevealAnimated(winChance.Icon));
+        yield return new WaitForSeconds(delayBetweenSlots);
 
-        var second = chances[Random.Range(0, chances.Count)];
-        secondSlot.sprite = second.Icon;
-        chances.Remove(second);
+        yield return StartCoroutine(secondSlot.RevealAnimated(winChance.Icon));
+        yield return new WaitForSeconds(delayBetweenSlots);
 
-        var third = chances[Random.Range(0, chances.Count)];
-        thirdSlot.sprite = third.Icon;
-        chances.Remove(third);
+        yield return StartCoroutine(thirdSlot.RevealAnimated(winChance.Icon));
+
+        // Показываем награду только после раскрытия всех слотов
+        moneyCounter.Money += (int)winChance.Reward;
+        rewardText.text = $"+{winChance.Reward}";
+        animator.Play("Out");
+
+        isSpinning = false;
+    }
+
+    private IEnumerator RevealLose()
+    {
+        isSpinning = true;
+
+        CardChance first, second, third;
+
+        // Генерируем до тех пор, пока не получим "не все одинаковые"
+        do
+        {
+            first = GetWinChance();
+            second = GetWinChance();
+            third = GetWinChance();
+        }
+        while (first.Icon == second.Icon && second.Icon == third.Icon);
+
+        yield return StartCoroutine(firstSlot.RevealAnimated(first.Icon));
+        yield return new WaitForSeconds(delayBetweenSlots);
+        yield return StartCoroutine(secondSlot.RevealAnimated(second.Icon));
+        yield return new WaitForSeconds(delayBetweenSlots);
+        yield return StartCoroutine(thirdSlot.RevealAnimated(third.Icon));
+
+        rewardText.text = "Вы проиграли";
+        isSpinning = false;
     }
 }

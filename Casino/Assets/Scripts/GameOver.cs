@@ -19,7 +19,7 @@ public class GameOver : MonoBehaviour
     {
         panel.SetActive(true);
         var finalScore = moneyCounter.Money + deposit.DepositValue;
-        finalText.text = $"Игра окончена\r\nВаш счет:{finalScore}";
+        finalText.text = $"ваш счет: {finalScore}";
         string name = PlayerPrefs.GetString("CurrentPlayerName", "Player");
         LeaderboardManager.SaveScore(name, finalScore);
     }

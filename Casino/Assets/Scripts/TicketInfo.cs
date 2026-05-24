@@ -31,7 +31,9 @@ public class TicketInfo : MonoBehaviour
     [SerializeField] CardChance cardChancePrefab;
     [SerializeField] LuckLevel luckLevel;
     [SerializeField] PaymentLevel paymentLevel;
-
+    [SerializeField] GameObject ticketBGPanel;
+    [SerializeField] Casino casino;
+    [SerializeField] TextMeshProUGUI chanceTitle;
 
     private int spinCost;
     private string difficulty;
@@ -50,6 +52,11 @@ public class TicketInfo : MonoBehaviour
     {
         if (settings == null)
             return;
+
+        ticketBGPanel.SetActive(true);
+        casino.gameObject.SetActive(true);
+        chanceTitle.text = "Шансы и награды:";
+
         previousSettings = settings;
         Difficulty = settings.Dfficulty;
         SpinCost = settings.SpinCost;

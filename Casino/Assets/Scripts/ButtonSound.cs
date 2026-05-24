@@ -12,6 +12,7 @@ public class ButtonSound : MonoBehaviour
 
     private void PlaySound()
     {
-        AudioManager.Instance.PlaySfx(audioClip);
+        if (AudioManager.Instance != null) 
+            AudioManager.Instance.PlaySfx(audioClip);
     }
 }

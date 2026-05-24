@@ -29,9 +29,9 @@ public class Deposit : MonoBehaviour
 
     public void AddHundred()
     {
-        animator.Play("Piggy");
         if (moneyCounter.Money < 100)
             return;
+        animator.Play("Piggy");
         moneyCounter.Money -= 100;
         depositValue += 100;
         UpdateText();
@@ -39,9 +39,10 @@ public class Deposit : MonoBehaviour
 
     public void RemoveHundred()
     {
-        animator.Play("PiggyRevers");
+
         if (depositValue < 100)
             return;
+        animator.Play("PiggyRevers");
         moneyCounter.Money += 100;
         depositValue -= 100;
         UpdateText();

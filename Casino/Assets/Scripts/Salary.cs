@@ -1,9 +1,11 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class Salary : MonoBehaviour
 {
+    public Action<int> AmountChanged;
     public int Amount
     {
         get => amount;
@@ -11,6 +13,7 @@ public class Salary : MonoBehaviour
         {
             amount = value;
             text.text = $"{amount}$";
+            AmountChanged?.Invoke(amount);
         }
     }
 
