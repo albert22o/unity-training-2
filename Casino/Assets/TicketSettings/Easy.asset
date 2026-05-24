@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ee451039b5e2940b3c9596c64413db, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: 
-  SpinCost: 10
+  SpinCost: 50
   Dfficulty: Easy
   Chances:
-  - icon: {fileID: 21300000, guid: cd1cea45be7172e438d051f57d94ac2b, type: 3}
-    chance: 20
-    reward: 200
+  - icon: {fileID: 21300000, guid: ab4dc476d43f7ce4eb8ea86bacfa5969, type: 3}
+    chance: 12
+    reward: 400
   - icon: {fileID: 21300000, guid: db8b228730baa464db4e18d807b93a2d, type: 3}
-    chance: 60
-    reward: 20
+    chance: 50
+    reward: 200
   - icon: {fileID: 21300000, guid: 6deb1931b7c6c3d42b556f555ccd4157, type: 3}
-    chance: 20
+    chance: 25
     reward: 0

@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ee451039b5e2940b3c9596c64413db, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
-  SpinCost: 30
+  SpinCost: 100
   Dfficulty: Medium
   Chances:
   - icon: {fileID: 21300000, guid: 5be8b214542708f4ca907d76b98130ec, type: 3}
-    chance: 15
-    reward: 400
-  - icon: {fileID: 21300000, guid: cd1cea45be7172e438d051f57d94ac2b, type: 3}
-    chance: 15
-    reward: 300
+    chance: 20
+    reward: 750
   - icon: {fileID: 21300000, guid: ab4dc476d43f7ce4eb8ea86bacfa5969, type: 3}
-    chance: 30
-    reward: 30
+    chance: 20
+    reward: 500
+  - icon: {fileID: 21300000, guid: db8b228730baa464db4e18d807b93a2d, type: 3}
+    chance: 20
+    reward: 250
   - icon: {fileID: 21300000, guid: 6deb1931b7c6c3d42b556f555ccd4157, type: 3}
     chance: 40
     reward: 0

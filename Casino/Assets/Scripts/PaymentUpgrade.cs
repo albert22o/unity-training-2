@@ -19,7 +19,7 @@ public class PaymentUpgrade : MonoBehaviour
     [SerializeField] MoneyCounter moneyCounter;
     [SerializeField] TextMeshProUGUI text;
 
-    private int upgradePrice = 10;
+    private int upgradePrice = 50;
     private Button button;
 
     void Awake()
