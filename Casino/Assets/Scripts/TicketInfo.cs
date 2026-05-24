@@ -13,7 +13,7 @@ public class TicketInfo : MonoBehaviour
         set
         {
             difficulty = value;
-            difficultyText.text = $"Сложность: {difficulty}";
+            difficultyText.text = $"{difficulty} билет";
         }
     }
     public int SpinCost
@@ -21,7 +21,7 @@ public class TicketInfo : MonoBehaviour
         get => spinCost; set
         {
             spinCost = value;
-            spinCostText.text = $"Стоимость прокрутки: {spinCost}";
+            spinCostText.text = $"Цена билета: {spinCost}";
         }
     }
 

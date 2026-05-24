@@ -10,7 +10,7 @@ public class MoneyCounter : MonoBehaviour
         set
         {
             money = value;
-            text.text = $"Кошелек: {money}$";
+            text.text = $"{money}$";
         }
     }
 

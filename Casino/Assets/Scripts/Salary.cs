@@ -10,7 +10,7 @@ public class Salary : MonoBehaviour
         set
         {
             amount = value;
-            text.text = $"Зарплата: {amount}$";
+            text.text = $"{amount}$";
         }
     }
 

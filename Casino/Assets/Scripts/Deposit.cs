@@ -9,7 +9,7 @@ public class Deposit : MonoBehaviour
 
     [SerializeField] MoneyCounter moneyCounter;
     [SerializeField] YearsCounter yearsCounter;
-
+    [SerializeField] Animator animator;
     private int depositIncome => depositValue * 2 / 10;
     private TextMeshProUGUI text;
     private int depositValue = 0;
@@ -29,6 +29,7 @@ public class Deposit : MonoBehaviour
 
     public void AddHundred()
     {
+        animator.Play("Piggy");
         if (moneyCounter.Money < 100)
             return;
         moneyCounter.Money -= 100;
@@ -38,6 +39,7 @@ public class Deposit : MonoBehaviour
 
     public void RemoveHundred()
     {
+        animator.Play("PiggyRevers");
         if (depositValue < 100)
             return;
         moneyCounter.Money += 100;

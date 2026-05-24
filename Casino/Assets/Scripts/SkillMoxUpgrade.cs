@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(TextMeshProUGUI), typeof(Button))]
+[RequireComponent(typeof(Button))]
 public class SkillMoxUpgrade : MonoBehaviour
 {
     public int UpgradePrice
@@ -17,14 +17,13 @@ public class SkillMoxUpgrade : MonoBehaviour
 
     [SerializeField] Salary level;
     [SerializeField] MoneyCounter moneyCounter;
+    [SerializeField] TextMeshProUGUI text;
 
     private int upgradePrice = 300;
-    private TextMeshProUGUI text;
     private Button button;
 
     void Awake()
     {
-        text = GetComponent<TextMeshProUGUI>();
         button = GetComponent<Button>();
         if (level == null || moneyCounter == null)
             Debug.LogError("Проставь все зависимости!");
