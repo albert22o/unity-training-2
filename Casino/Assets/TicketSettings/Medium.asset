@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ee451039b5e2940b3c9596c64413db, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
-  SpinCost: 100
+  SpinCost: 400
   Dfficulty: Medium
   Chances:
   - icon: {fileID: 21300000, guid: 5be8b214542708f4ca907d76b98130ec, type: 3}
