@@ -8,6 +8,7 @@ public class Work : MonoBehaviour
     [SerializeField] MoneyCounter moneyCounter;
     [SerializeField] YearsCounter yearsCounter;
     [SerializeField] Salary salary;
+    [SerializeField] Casino casino;
 
     private Button button;
     private void Awake()
@@ -24,6 +25,8 @@ public class Work : MonoBehaviour
 
     private void OnClick()
     {
+        if (casino.isSpinning)
+            return;
         if (yearsCounter.Years <= 0)
             return;
         yearsCounter.DecreaseYear();
