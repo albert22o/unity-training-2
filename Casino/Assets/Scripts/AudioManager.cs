@@ -27,7 +27,6 @@ public class AudioManager : MonoBehaviour
         PlayMusic(musicClip, true);
     }
 
-    // --- Музыка ---
     public void SetMusicVolume(float volume)
     {
         musicSource.volume = volume;
@@ -47,7 +46,6 @@ public class AudioManager : MonoBehaviour
 
     public float GetMusicVolume() => musicSource.volume;
 
-    // --- SFX ---
     public void SetSfxVolume(float volume)
     {
         sfxSource.volume = volume;

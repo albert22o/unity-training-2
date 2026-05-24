@@ -14,14 +14,12 @@ public class Casino : MonoBehaviour
     [SerializeField] YearsCounter yearsCounter;
     [SerializeField] TextMeshProUGUI rewardText;
 
-    // Заменяем Image на SlotReveal
     [SerializeField] SlotReveal firstSlot;
     [SerializeField] SlotReveal secondSlot;
     [SerializeField] SlotReveal thirdSlot;
 
     [SerializeField] Animator animator;
 
-    // Задержка между раскрытием слотов (драматический эффект)
     [SerializeField] private float delayBetweenSlots = 0.3f;
 
     public bool isSpinning = false;
@@ -41,13 +39,11 @@ public class Casino : MonoBehaviour
 
         moneyCounter.Money -= ticketInfo.SpinCost;
 
-        // Закрываем все слоты заглушками
         firstSlot.Cover();
         secondSlot.Cover();
         thirdSlot.Cover();
         rewardText.text = "";
 
-        // Определяем результат
         CardChance winChance = GetWinChance();
         bool isWin = winChance != null && winChance.Reward > 0;
 
@@ -89,7 +85,6 @@ public class Casino : MonoBehaviour
 
         yield return StartCoroutine(thirdSlot.RevealAnimated(winChance.Icon));
 
-        // Показываем награду только после раскрытия всех слотов
         moneyCounter.Money += (int)winChance.Reward;
         rewardText.text = $"+{winChance.Reward}";
         animator.Play("Out");
@@ -103,7 +98,6 @@ public class Casino : MonoBehaviour
 
         CardChance first, second, third;
 
-        // Генерируем до тех пор, пока не получим "не все одинаковые"
         do
         {
             first = GetWinChance();
