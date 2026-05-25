@@ -114,5 +114,6 @@ public class Casino : MonoBehaviour
 
         rewardText.text = "Вы проиграли";
         isSpinning = false;
+        yearsCounter.Trigger();
     }
 }
